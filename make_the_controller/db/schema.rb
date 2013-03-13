@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130312160321) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
+    t.string   "birth_year"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

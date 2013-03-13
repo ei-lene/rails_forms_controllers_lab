@@ -5,6 +5,15 @@
   </div>
 
   <div class="actions">
+<!--     <%= f.select :artist_id, Artist.all.collect {|a| [a.name, a.id]} %> -->
+
+  <select name="song[artist]">
+    <% Artist.all.each do |a| %>
+      <option name="<%= a.id %>">
+        <%= a.name %>
+      </option>
+    <% end %>
+  </select>
     <%= f.submit %>
   </div>
 <% end %>
