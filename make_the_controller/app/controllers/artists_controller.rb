@@ -19,6 +19,16 @@ class ArtistsController < ApplicationController
 
   def create
     # TODO: fill me in!
+    @artist = Artist.new(params[:artist])
+    @artist.save
+    params[:song][:name].each do |song_name|
+      # find_or_created_name doesn't work unless artist is saved
+      @song = Song.find_or_create_by_name(song_name)
+      @song.artist_id = @artist.id
+      @song.save
+      # songs.build stores the information and artist can be saved later
+      # @artist.songs.build(:name => song_name)
+    end
 
     if @artist.save
       redirect_to @artist, notice: 'Artist was successfully created.'
