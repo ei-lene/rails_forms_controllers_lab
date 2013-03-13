@@ -15,10 +15,10 @@ class RecipesController < ApplicationController
 
     params[:ingredients].each do |ingredient|
       new_ingredient = Ingredient.new
-      new_ingredient.name = ingredient.name
-      new_ingredient.amount = ingredient.amount
+      new_ingredient.name = ingredient[:name]
+      new_ingredient.amount = ingredient[:amount]
 
-      @recipe.ingredients << ingredient
+      @recipe.ingredients << new_ingredient
     end
 
     if @recipe.save
