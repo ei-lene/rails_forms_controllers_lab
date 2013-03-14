@@ -78,4 +78,3 @@ Create a form in races/_form that will allow me to add many new horses and many 
 - Post accepts_nested_attributes_for :comments
 
 Create the posts form, and edit the posts controller, so that you can add a comment when creating a new post. In other words: allow users to create new comments at the same time they create posts.
-

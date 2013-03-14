@@ -41,6 +41,7 @@ class RacesController < ApplicationController
 
     params[:existing_jockeys].each do |jockey|
       jockey = Jockey.find_by_id(jockey)
+
       @race.jockeys << jockey
     end
 
