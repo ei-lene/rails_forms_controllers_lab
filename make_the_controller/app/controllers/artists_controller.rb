@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
   def create
     # TODO: fill me in!
     @artist = Artist.new(params[:artist])
+    @artist.birth_year = params[:artist_year_of_birth]
     @artist.save
     params[:song][:name].each do |song_name|
       # find_or_created_name doesn't work unless artist is saved
