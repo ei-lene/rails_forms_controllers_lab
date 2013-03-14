@@ -69,3 +69,12 @@ Create a form in races/_form that will allow me to add many new horses and many 
 
 2) Now edit the previous form (races/_form), AND the forms controller, so that it will also allow me to add existing horses and jockey's to the form. You should use html form checkboxes so that it's easy to add multiple existing records to the form. You'll want them all to end up in an array so you can easily itterate over them later in the controller.
 
+## Accepts Nested Attributes For
+
+1) Given that:
+
+- Comment belongs_to :post
+- Post has_many :comments
+- Post accepts_nested_attributes_for :comments
+
+Create the posts form, and edit the posts controller, so that you can add a comment when creating a new post. In other words: allow users to create new comments at the same time they create posts.
