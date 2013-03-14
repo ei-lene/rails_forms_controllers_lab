@@ -6,7 +6,6 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new
     @ingredient.name = params[:ingredient][:name]
-
     @ingredient.recipe = Recipe.find(params[:recipe_id])
 
     if @ingredient.save

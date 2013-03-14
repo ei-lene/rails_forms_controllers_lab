@@ -1,0 +1,12 @@
+<%= form_for @ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  
+  <select name="recipe_id">
+    <% Recipe.all.each do |r| %>
+      <option value="<%= r.id %>">  <%= r.name %> </option>
+    <% end %>
+  </select> 
+
+  <%= f.submit %>
+<% end %>
