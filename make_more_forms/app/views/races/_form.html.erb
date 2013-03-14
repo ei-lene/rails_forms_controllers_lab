@@ -27,7 +27,17 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   <br>
+  <strong>Add existing horses</strong> <br>  
+    <% Horse.all.each do |h| %>
+      <input type="checkbox" name="existing_horses[]" value="<%= h.id%>" /> <%= h.name %>
+    <% end %>
+  <br>
+  <strong>Add existing jockeys</strong> <br>
+    <% Jockey.all.each do |j| %>
+      <input type="checkbox" name="existing_jockeys[]" value="<%= j.id%>" /> <%= j.name %>
+    <% end %>
   <div class="horses">
+    <strong>Add new horses</strong>
     <ol>
       <li>
         <%= f.label "horse name" %>
@@ -42,6 +52,7 @@
   <button id="add_horse" type="button"> Add another horse</button>
   <br>
   <div class="jockeys">
+    <strong>Add new jockeys</strong>
     <ol>
       <li>
         <%= f.label "jockey name" %>
