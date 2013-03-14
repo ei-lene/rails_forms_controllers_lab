@@ -1,0 +1,40 @@
+<script>
+  $(document).ready(function(){
+    $('#add_ingredient').click(function() {
+      $('ol').append(
+        ' <li>Ingredient name:\
+        <input type="text"name="ingredients[][name]" />\
+        Ingredient amount:\
+        <input type="text" name="ingredients[][amount]"/>\
+        </li>'
+      ); // end .append
+    }); // end .click
+  }) // end doc ready
+</script>
+
+
+
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description %>
+  <input type="text" name="description" />
+  <br>
+  <ol>
+    <li>
+      Ingredient name:
+      <input type="text" name="ingredients[][name]" />
+
+      Ingredient amount:
+      <input type="text" name="ingredients[][amount]" />
+      <br>
+    </li>
+  </ol>
+  
+  <button id="add_ingredient" type="button"> Add another ingredient </button>
+  <br>
+
+  <%= f.submit %>  
+<% end %>
+
