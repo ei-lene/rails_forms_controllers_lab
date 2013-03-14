@@ -1,0 +1,59 @@
+<script>
+  $(document).ready(function(){
+    $('#add_horse').click(function(){
+      $('.horses ol').append('<br><li>Horse name\
+        <input name="horse_attributes[][name]"/>\
+        Horse number\
+        <input name="horse_attributes[][number]"/>\
+        Horse position\
+        <input name="horse_attributes[][position]"/></li>'
+        );
+    });
+    $('#add_jockey').click(function(){
+      $('.jockeys ol').append('<br><li>Jockey name\
+        <input name="jockey_attributes[][name]"/>\
+        Jockey height\
+        <input name="jockey_attributes[][height]"/>\
+        Jockey shoe size\
+        <input name="jockey_attributes[][shoe_size]"/></li>'
+        );
+    });
+  })
+</script>
+<%= form_for @race do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <div class="horses">
+    <ol>
+      <li>
+        <%= f.label "horse name" %>
+        <input name="horse_attributes[][name]"/>
+        <%= f.label "horse number" %>
+        <input name="horse_attributes[][number]"/>
+        <%= f.label "horse position" %>
+        <input name="horse_attributes[][position]"/>
+      </li>
+    </ol>
+  </div>
+  <button id="add_horse" type="button"> Add another horse</button>
+  <br>
+  <div class="jockeys">
+    <ol>
+      <li>
+        <%= f.label "jockey name" %>
+        <input name="jockey_attributes[][name]"/>
+        <%= f.label "jockey height" %>
+        <input name="jockey_attributes[][height]"/>
+        <%= f.label "jockey shoe size" %>
+        <input name="jockey_attributes[][shoe_size]"/>
+      </li>
+    </ol>
+  </div>
+  <button id="add_jockey" type="button"> Add another jockey</button>
+  <br>
+  <%= f.submit %>
+<% end %>
